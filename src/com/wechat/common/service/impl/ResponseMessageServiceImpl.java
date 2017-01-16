@@ -6,6 +6,7 @@ import java.util.Map;
 import com.wechat.common.service.ResponseMessageService;
 import com.wechat.common.utils.HelpUtil;
 import com.wechat.common.utils.MessageUtil;
+import com.wechat.common.utils.SpringContextUtil;
 import com.wechat.message.response.ResponseBaseMessage;
 import com.wechat.message.response.TextMessage;
 import com.wechat.music.QQMusicService;
@@ -41,7 +42,7 @@ public class ResponseMessageServiceImpl implements ResponseMessageService {
 			if ("".equals(keyWord)) {
 				responseBaseMessage = HelpUtil.getTranslateUsageMessage();
 			} else {
-				BaiduTranslateService baiduTranslateService = new BaiduTranslateService();
+				BaiduTranslateService baiduTranslateService = SpringContextUtil.getBean(BaiduTranslateService.class);
 				responseBaseMessage = baiduTranslateService.getTranslateMessage(keyWord);
 			}
 		} else if (content.equals("music") || content.equals("乐")
@@ -53,7 +54,7 @@ public class ResponseMessageServiceImpl implements ResponseMessageService {
 				e.printStackTrace();
 			}
 		}else if ("微信精选文章".equals(content)) {
-			WechatArticleService wechatArticleService = new WechatArticleService();
+			WechatArticleService wechatArticleService = SpringContextUtil.getBean(WechatArticleService.class);
 			responseBaseMessage = wechatArticleService.getMessage();
 		} else {
 			// 回复文本消息
@@ -62,7 +63,7 @@ public class ResponseMessageServiceImpl implements ResponseMessageService {
 			textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);*/
 			
 			try {
-				SmalliRobotService smalliRobotService = new SmalliRobotService();
+				SmalliRobotService smalliRobotService = SpringContextUtil.getBean(SmalliRobotService.class);
 				responseBaseMessage = smalliRobotService.robotReply(content, fromUserName);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

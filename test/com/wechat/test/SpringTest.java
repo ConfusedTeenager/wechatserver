@@ -5,8 +5,8 @@ import com.wechat.common.utils.SpringContextUtil;
 
 public class SpringTest {
 	public static void main(String[] args) {
-		SubscriberService subscriberService = (SubscriberService) SpringContextUtil.getBean("subscriberService");
-		System.out.println(subscriberService);
+		SubscriberService subscriberService = SpringContextUtil.getBean(SubscriberService.class);
+		System.err.println(subscriberService);
 	}
 
 }

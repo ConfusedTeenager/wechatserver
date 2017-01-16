@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import com.wechat.common.model.ShowApiBean;
 import com.wechat.common.utils.ConfigUtil;
 import com.wechat.common.utils.GsonUtil;
@@ -16,6 +18,12 @@ import com.wechat.message.response.NewsMessage;
 import com.wechat.wechatarticle.model.ArticleItem;
 import com.wechat.wechatarticle.model.PageBean;
 
+/**
+ * 微信精选文章服务类
+ * @author yinsaiyu
+ *
+ */
+@Service("wechatArticleService")
 public class WechatArticleService {
 
 	public NewsMessage getMessage() {
@@ -35,7 +43,7 @@ public class WechatArticleService {
 		ShowApiBean showApiBean = GsonUtil.jsonToObject(result, ShowApiBean.class);
 		PageBean pageBean = GsonUtil.jsonToObject(showApiBean.getShowapi_res_body().toString(), "pagebean",PageBean.class);
 		List<ArticleItem> articleItems = pageBean.getContentlist();
-		int count = articleItems.size() > 10 ? 10 : articleItems.size();
+		int count = articleItems.size() > 5 ? 5 : articleItems.size();
 		List<Article> articles = new ArrayList<Article>();
 		for (int i = 0; i < count; i++) {
 			ArticleItem articleItem = articleItems.get(i);

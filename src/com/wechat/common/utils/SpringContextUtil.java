@@ -4,10 +4,14 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringContextUtil implements ApplicationContextAware {
+	
+	private static String resource_spring = "spring/applicationContext.xml";
+	
 	// Spring应用上下文环境
-	private static ApplicationContext applicationContext;
+	private static ApplicationContext applicationContext = new ClassPathXmlApplicationContext(resource_spring);
 
 	/**
 	 * 实现ApplicationContextAware接口的回调方法，设置上下文环境

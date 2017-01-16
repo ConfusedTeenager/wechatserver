@@ -3,6 +3,8 @@ package com.wechat.robot;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import com.wechat.common.utils.ConfigUtil;
 import com.wechat.common.utils.GsonUtil;
 import com.wechat.common.utils.HttpsGetUtil;
@@ -15,6 +17,7 @@ import com.wechat.robot.model.SmalliRobotReply;
  * @author yinsaiyu
  *
  */
+@Service("smalliRobotService")
 public class SmalliRobotService {
 
 	/**

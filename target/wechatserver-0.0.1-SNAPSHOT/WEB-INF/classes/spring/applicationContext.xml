@@ -89,4 +89,5 @@
 	<!--订阅用户管理的service -->
 	<!-- 	<bean id="subscriberService" class="com.wechat.business.impl.SubscriberServiceImpl" />
 	<bean id="coreService" class="com.wechat.common.service.CoreService" /> -->
+	<bean class="com.wechat.common.utils.SpringContextUtil" />
 </beans>

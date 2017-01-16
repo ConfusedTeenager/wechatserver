@@ -7,11 +7,14 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.springframework.stereotype.Service;
+
 import com.google.gson.Gson;
 import com.wechat.common.utils.ConfigUtil;
 import com.wechat.common.utils.MessageUtil;
 import com.wechat.message.response.TextMessage;
 
+@Service("baiduTranslateService")
 public class BaiduTranslateService {
 
 	// 在平台申请的APP_ID 详见

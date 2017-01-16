@@ -10,7 +10,7 @@ import com.wechat.business.SubscriberService;
 import com.wechat.common.mapper.SubscriberMapper;
 import com.wechat.common.model.Subscriber;
 
-@Service
+@Service("subscriberService")
 public class SubscriberServiceImpl implements SubscriberService{
 	
 	@Autowired
