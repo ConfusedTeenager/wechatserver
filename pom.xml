@@ -216,6 +216,7 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<defaultGoal>compile</defaultGoal>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
